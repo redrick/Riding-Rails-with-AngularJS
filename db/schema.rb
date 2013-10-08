@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008191656) do
+ActiveRecord::Schema.define(version: 20131008200326) do
 
   create_table "authorizations", force: true do |t|
     t.string   "uid"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20131008191656) do
     t.string   "name"
     t.string   "url"
     t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shares", force: true do |t|
+    t.integer  "from_user_id"
+    t.integer  "to_user_id"
+    t.string   "to_email"
+    t.datetime "created_at"
+    t.string   "url"
     t.datetime "updated_at"
   end
 
