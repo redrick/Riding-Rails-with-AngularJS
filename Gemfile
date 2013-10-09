@@ -21,3 +21,12 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'uuidtools'
+
+gem'angularjs-rails','>=1.2.0.rc1'
+gem'ngmin-rails'
+
+#ForTwitter'sBootstrap
+gem'bootstrap-sass-rails'
+
+#orforZurbFoundation
+gem'zurb-foundation'
