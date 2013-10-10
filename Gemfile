@@ -31,3 +31,5 @@ gem "twitter-bootstrap-rails"
 
 #orforZurbFoundation
 gem'zurb-foundation'
+
+gem 'compass'
