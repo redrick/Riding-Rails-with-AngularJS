@@ -27,6 +27,7 @@ gem'ngmin-rails'
 
 #ForTwitter'sBootstrap
 gem'bootstrap-sass-rails'
+gem "twitter-bootstrap-rails"
 
 #orforZurbFoundation
 gem'zurb-foundation'
