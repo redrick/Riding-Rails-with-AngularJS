@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('shareupApp', [])
+angular.module('shareupApp', ['ngResource'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

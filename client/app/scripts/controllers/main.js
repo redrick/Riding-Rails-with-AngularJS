@@ -1,10 +1,5 @@
-'use strict';
-
 angular.module('shareupApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, $http, ArticleService) {
+    $scope.currentUser = {};
+    $scope.articles = ArticleService.getLatestFeed();
   });

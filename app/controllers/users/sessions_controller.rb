@@ -24,7 +24,24 @@ class Users::SessionsController < Devise::SessionsController
                                 data: {}
                               }
   end
-  
+
+  def get_current_user
+    if user_signed_in?
+      render status: 200, json: { success: true,
+                                  info: "Current user",
+                                  data: {
+                                    token: current_user.authentication_token,
+                                    email: current_user.email
+                                  }
+                                }
+    else
+      render status: 401, json: { success: true,
+                                  info: "",
+                                  data: {}
+                                }
+    end
+  end
+
   # def show_current_user
   #   reject_if_not_authorized_request!
   #   render status: 200,json: {success: true,

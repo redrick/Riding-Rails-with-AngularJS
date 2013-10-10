@@ -1,24 +1,20 @@
 class SharesController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create]
-  respond_to :json
+  skip_before_filter :verify_authenticity_token
+  before_filter :authenticate_user!
 
   def index
-    render json: []
+    render json: status: 200, json: { success: true,
+                                      shares: current_user.shares
+                                    }
   end
 
   def create
-    link = params[:url]
-
-    share_params = {from_user_id: current_user.id}
-    # nefunguje finder find_by_name_or_email
-    if to_user = User.find_by_email(params[:user])
-      share_params[:to_user_id] = to_user.id
-    else
-      share_params[:to_email] = params[:user]
+    share = Share.new(params[:share])
+    if share.save
+      render status: 200, json: { success: false,
+                                  error: share.errors
+                                }
     end
-
-    share = Share.create(share_params)
-    render status: 200, json: { success: share.persisted?,
-                                share_id: share.id }
   end
+  
 end
